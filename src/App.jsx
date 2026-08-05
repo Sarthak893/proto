@@ -1,6 +1,7 @@
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import Hero from './components/sections/Hero'
+import FeaturedCategories from './components/sections/FeaturedCatergories'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           and automatically move down when more sections are added. */}
       <main className="flex-1 pt-[96px]">
         <Hero/>
+        <FeaturedCategories/>
       </main>
 
       <Footer />
