@@ -1,5 +1,6 @@
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
+import Hero from './components/sections/Hero'
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       {/* Add all page sections inside main. Footer will stay at bottom when content is short,
           and automatically move down when more sections are added. */}
       <main className="flex-1 pt-[96px]">
-        {/* Example: <Hero /> <About /> <BestSellers /> */}
+        <Hero/>
       </main>
 
       <Footer />
