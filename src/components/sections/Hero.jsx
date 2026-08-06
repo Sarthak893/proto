@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 
-import hero1 from "../../assets/hero/hero1.jpg";
-import hero2 from "../../assets/hero/hero2.jpg";
+import heroDesktop1 from "../../assets/hero/hero1.jpg";
+import heroDesktop2 from "../../assets/hero/hero2.jpg";
 
-const slides = [hero1, hero2];
+// Mobile Hero
+import heroMobile from "../../assets/hero/ChatGPT Image Aug 6, 2026, 08_56_41 PM.png";
+
+const slides = [heroDesktop1, heroDesktop2];
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);
@@ -26,46 +28,44 @@ const Hero = () => {
       prev === 0 ? slides.length - 1 : prev - 1
     );
   };
+
   useEffect(() => {
-  const handleKeyDown = (e) => {
-    if (e.key === "ArrowRight") {
-      nextSlide();
-    }
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowRight") nextSlide();
+      if (e.key === "ArrowLeft") prevSlide();
+    };
 
-    if (e.key === "ArrowLeft") {
-      prevSlide();
-    }
-  };
+    window.addEventListener("keydown", handleKeyDown);
 
-  window.addEventListener("keydown", handleKeyDown);
+    return () =>
+      window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+return (
+  <section
+    id="home"
+    className="relative overflow-hidden bg-[#FFF9F3]"
+  >
 
-  return () => {
-    window.removeEventListener("keydown", handleKeyDown);
-  };
-}, []);
+    {/* ===================== Desktop Hero ===================== */}
 
-  return (
-    <section
-      id="home"
+    <div
       className="
         relative
-    
-        h-[42vh]
-        sm:h-[55vh]
-        md:h-[75vh]
+        hidden
+        md:block
+
+        h-[75vh]
         lg:h-[90vh]
         xl:h-[calc(100vh-96px)]
-        w-full
-        overflow-hidden
-        bg-[#FFF9F3]
       "
-
     >
-              {/* Hero Slides */}
+
+      {/* Hero Slides */}
 
       <div className="relative h-full w-full">
 
         {slides.map((image, index) => (
+
           <div
             key={index}
             className={`
@@ -90,15 +90,18 @@ const Hero = () => {
                 w-full
                 object-cover
                 object-center
+
                 select-none
                 pointer-events-none
+
                 transition-transform
                 duration-[6000ms]
-                ease-linear"
+                ease-linear
+              "
               draggable="false"
             />
 
-            {/* Warm Overlay */}
+            {/* Overlay */}
 
             <div
               className="
@@ -112,11 +115,12 @@ const Hero = () => {
             />
 
           </div>
+
         ))}
 
       </div>
 
-
+      {/* Slider Dots */}
 
       <div
         className="
@@ -124,19 +128,21 @@ const Hero = () => {
           bottom-6
           left-1/2
           z-30
+
           flex
           -translate-x-1/2
           items-center
           gap-3
         "
       >
+
         {slides.map((_, index) => (
+
           <button
             key={index}
             aria-label={`Go to Slide ${index + 1}`}
             onClick={() => setCurrent(index)}
             className={`
-              relative
               h-3
               rounded-full
               transition-all
@@ -148,11 +154,61 @@ const Hero = () => {
               }
             `}
           />
+
         ))}
+
       </div>
 
-    </section>
-  );
+    </div>
+
+    {/* ===================== Mobile Hero Starts ===================== */}
+
+    <div className="block md:hidden">
+      <div
+  className="
+    relative
+    bg-[#FFF9F3]
+  "
+>
+
+  <img
+    src={heroMobile}
+    alt="CraftHabitat Hero"
+    className="
+      w-full
+      h-auto
+      object-cover
+      object-top
+      select-none
+      pointer-events-none
+    "
+    draggable="false"
+  />
+
+  {/* Bottom Fade */}
+
+  <div
+    className="
+      absolute
+      bottom-0
+      left-0
+      right-0
+      h-24
+      bg-gradient-to-t
+      from-[#FFF9F3]
+      to-transparent
+    "
+  />
+
+</div>
+
+    </div>
+
+  </section>
+);
+
 };
 
 export default Hero;
+
+      
