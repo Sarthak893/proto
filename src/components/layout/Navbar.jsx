@@ -8,24 +8,24 @@ import logo from '../../assets/logo.jpg'
 const navItems = [
   {
     title: 'Home',
-    href: '#home',
+    href: '/#home',
   },
   {
     title: 'Products',
-    href: '#categories',
+    href: '/products',
     dropdown: true,
   },
   {
     title: 'About',
-    href: '#about',
+    href: '/#about',
   },
   {
     title: 'Reviews',
-    href: '#reviews',
+    href: '/#reviews',
   },
   {
     title: 'Contact',
-    href: '#contact',
+    href: '/#contact',
   },
 ]
 
@@ -179,7 +179,8 @@ const Navbar = () => {
             {/* CTA */}
 
             <div className="flex items-center gap-3">
-              <button
+              <a
+                href="/wishlist"
                 className="
                   flex
                   items-center
@@ -196,9 +197,12 @@ const Navbar = () => {
                 aria-label="Wishlist"
               >
                 <FaHeart className="text-3xl" />
-              </button>
+              </a>
 
-              <button
+              <a
+                href="https://wa.me/919468121415?text=How%20can%20I%20get%20more%20info%20about%20this%3F"
+                target="_blank"
+                rel="noreferrer"
                 className="
                   rounded-md
                   bg-[#E0AE45]
@@ -215,7 +219,7 @@ const Navbar = () => {
                 "
               >
                 Place Order
-              </button>
+              </a>
             </div>
           </div>
 
@@ -286,7 +290,9 @@ const Navbar = () => {
                 ))}
 
                 <div className="flex gap-3 p-6">
-                  <button
+                  <a
+                    href="/wishlist"
+                    onClick={() => setMenuOpen(false)}
                     className="
                       flex
                       items-center
@@ -300,20 +306,25 @@ const Navbar = () => {
                     aria-label="Wishlist"
                   >
                     <FaHeart className="text-3xl" />
-                  </button>
+                  </a>
 
-                  <button
+                  <a
+                    href="https://wa.me/919468121415?text=How%20can%20I%20get%20more%20info%20about%20this%3F"
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => setMenuOpen(false)}
                     className="
                       flex-1
                       rounded-md
                       bg-[#D5A13A]
                       py-3
+                      text-center
                       font-semibold
                       text-[#3C281B]
                     "
                   >
                     Place Order
-                  </button>
+                  </a>
                 </div>
 
               </nav>

@@ -1,10 +1,20 @@
 import { FaWhatsapp } from 'react-icons/fa'
-import { IoCallOutline, IoLocationOutline, IoMailOutline } from 'react-icons/io5'
+import { IoCallOutline, IoChevronDown, IoLocationOutline, IoMailOutline } from 'react-icons/io5'
 import { RiInstagramLine } from 'react-icons/ri'
 import pot from '../../assets/pot.png'
 import paperBg from '../../assets/categories/paper-bg.jpg'
 
-const quickLinks = ['Home', 'Products', 'About Us', 'Reviews', 'Contact Us', 'Place Order']
+const quickLinks = [
+  { title: 'Home', href: '/#home' },
+  { title: 'Products', href: '/products', dropdown: true },
+  { title: 'About Us', href: '/#about' },
+  { title: 'Reviews', href: '/#reviews' },
+  {
+    title: 'Contact Us',
+    href: 'https://wa.me/919468121415?text=How%20can%20I%20get%20more%20info%20about%20this%3F',
+    external: true,
+  },
+]
 
 const categories = [
   'Kids',
@@ -77,7 +87,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <FooterColumn title="Quick Links" items={quickLinks} />
+          <QuickLinksColumn />
           <FooterColumn title="Categories" items={categories} />
           <FooterColumn title="Customer Support" items={supportLinks} />
 
@@ -106,6 +116,41 @@ const Footer = () => {
         © {new Date().getFullYear()} CraftsHabitat. All rights reserved.
       </div>
     </footer>
+  )
+}
+
+const QuickLinksColumn = () => {
+  return (
+    <div>
+      <h4 className="mb-3 text-base font-bold text-black sm:text-lg">Quick Links</h4>
+      <ul className="space-y-3">
+        {quickLinks.map((item) => (
+          <li key={item.title}>
+            <a
+              href={item.href}
+              target={item.external ? '_blank' : undefined}
+              rel={item.external ? 'noreferrer' : undefined}
+              className={item.cta
+                ? 'inline-flex rounded-md bg-[#E0AE45] px-5 py-2 text-[13px] font-semibold text-[#3C281B] shadow-[0_5px_12px_rgba(0,0,0,.15)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#D69B2D] sm:text-[14px]'
+                : 'group relative inline-flex cursor-pointer items-center text-[13px] font-semibold uppercase tracking-[0.08em] text-[#4B2F1C] transition-all duration-300 hover:text-[#5A3922] sm:text-[14px]'
+              }
+            >
+              {item.cta ? (
+                item.title
+              ) : (
+                <>
+                  <span className="relative">
+                    {item.title}
+                    <span className="absolute left-0 -bottom-[6px] h-[2px] w-0 rounded-full bg-[#5A3922] transition-all duration-300 group-hover:w-full" />
+                  </span>
+                  {item.dropdown && <IoChevronDown className="ml-1 text-[14px]" />}
+                </>
+              )}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 
