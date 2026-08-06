@@ -14,9 +14,9 @@ function App() {
           and automatically move down when more sections are added. */}
       <main className="flex-1 pt-[76px] md:pt-[96px]">
         <Hero />
+        <About />
         <WhyChoose />
         <FeaturedCategories />
-        <About />
       </main>
 
       <Footer />
