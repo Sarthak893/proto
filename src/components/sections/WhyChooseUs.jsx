@@ -48,7 +48,7 @@ const WhyChoose = () => {
   return (
     <section
       id="why"
-      className="relative overflow-hidden py-32"
+      className="relative overflow-hidden py-16 md:py-32"
       style={{
         backgroundImage: `url(${paperBg})`,
         backgroundRepeat: "repeat",
@@ -62,7 +62,7 @@ const WhyChoose = () => {
 
       <div className="absolute -right-40 bottom-0 h-[520px] w-[520px] rounded-full bg-[#F5D78B]/20 blur-[170px]" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
 
         {/* ================= Heading ================= */}
 
@@ -71,7 +71,7 @@ const WhyChoose = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: .7 }}
           viewport={{ once: true }}
-          className="mx-auto mb-24 max-w-3xl text-center"
+          className="mx-auto mb-12 max-w-3xl text-center md:mb-24"
         >
 
           <span
@@ -80,10 +80,12 @@ const WhyChoose = () => {
               bg-[#F8E7BF]
               px-5
               py-2
-              text-sm
+              text-xs
               font-semibold
               uppercase
-              tracking-[4px]
+              tracking-[2px]
+              sm:text-sm
+              sm:tracking-[4px]
               text-[#A46C18]
             "
           >
@@ -93,10 +95,11 @@ const WhyChoose = () => {
           <h2
             className="
               mt-8
-              text-5xl
+              text-3xl
               font-black
               leading-tight
               text-[#3A2618]
+              sm:text-4xl
               md:text-6xl
             "
           >
@@ -113,8 +116,10 @@ const WhyChoose = () => {
               mx-auto
               mt-6
               max-w-2xl
-              text-lg
-              leading-8
+              text-base
+              leading-7
+              md:text-lg
+              md:leading-8
               text-[#6B594B]
             "
           >
@@ -135,7 +140,8 @@ const WhyChoose = () => {
           whileHover={{ y: -5 }}
           className="
             overflow-hidden
-            rounded-[40px]
+            rounded-[26px]
+            md:rounded-[40px]
             border
             border-[#E8DCCB]
             bg-[rgba(255,252,247,.92)]
@@ -148,13 +154,14 @@ const WhyChoose = () => {
             className="
               grid
               items-center
-              gap-12
+              gap-0
+              lg:gap-12
               lg:grid-cols-2
             "
           >
             {/* ================= LEFT SIDE ================= */}
 
-<div className="relative p-8">
+<div className="relative p-4 sm:p-8">
 
   {/* Warm Glow */}
 
@@ -163,8 +170,10 @@ const WhyChoose = () => {
       absolute
       left-10
       top-1/2
-      h-[420px]
-      w-[420px]
+      h-64
+      w-64
+      sm:h-[420px]
+      sm:w-[420px]
       -translate-y-1/2
       rounded-full
       bg-[#D8A23C]/15
@@ -178,10 +187,13 @@ const WhyChoose = () => {
     className="
       relative
       grid
-      h-[620px]
+      h-[340px]
       grid-cols-2
       grid-rows-[1.8fr_1fr]
-      gap-5
+      gap-3
+      sm:h-[460px]
+      sm:gap-5
+      lg:h-[620px]
     "
   >
 
@@ -293,18 +305,25 @@ const WhyChoose = () => {
 
     className="
       absolute
-      -right-3
-      top-16
+      right-3
+      top-8
+      max-w-[160px]
 
-      rounded-[26px]
+      rounded-[20px]
+      sm:-right-3
+      sm:top-16
+      sm:max-w-none
+      sm:rounded-[26px]
 
       border
       border-[#EAD9BA]
 
       bg-[#FFFDF8]/95
 
-      px-6
-      py-5
+      px-4
+      py-3
+      sm:px-6
+      sm:py-5
 
       shadow-[0_20px_45px_rgba(0,0,0,.15)]
 
@@ -314,9 +333,11 @@ const WhyChoose = () => {
 
     <p
       className="
-        text-xs
+        text-[10px]
         uppercase
-        tracking-[4px]
+        tracking-[2px]
+        sm:text-xs
+        sm:tracking-[4px]
         text-[#A46A17]
       "
     >
@@ -326,9 +347,10 @@ const WhyChoose = () => {
     <h3
       className="
         mt-2
-        text-3xl
+        text-xl
         font-black
         text-[#3A2618]
+        sm:text-3xl
       "
     >
       ❤️ Handmade
@@ -351,7 +373,7 @@ const WhyChoose = () => {
 
 {/* ================= RIGHT SIDE ================= */}
 
-<div className="px-12 py-14 lg:px-16">
+<div className="px-5 py-8 sm:px-8 sm:py-10 lg:px-16 lg:py-14">
 
   <span
     className="
@@ -359,11 +381,13 @@ const WhyChoose = () => {
       bg-[#F8E7BF]
       px-5
       py-2
-      text-sm
+      text-xs
       font-semibold
       uppercase
-      tracking-[4px]
+      tracking-[2px]
       text-[#A46C18]
+      sm:text-sm
+      sm:tracking-[4px]
     "
   >
     Our Promise
@@ -372,10 +396,12 @@ const WhyChoose = () => {
   <h3
     className="
       mt-8
-      text-5xl
+      text-3xl
       font-black
       leading-tight
       text-[#3A2618]
+      sm:text-4xl
+      md:text-5xl
     "
   >
     Handmade
@@ -389,9 +415,11 @@ const WhyChoose = () => {
   <p
     className="
       mt-8
-      text-lg
-      leading-9
+      text-base
+      leading-7
       text-[#6B594B]
+      md:text-lg
+      md:leading-9
     "
   >
     Every product is designed to celebrate
@@ -414,9 +442,12 @@ const WhyChoose = () => {
         <div
           className="
             flex
-            h-11
-            w-11
+            h-10
+            w-10
+            shrink-0
             items-center
+            sm:h-11
+            sm:w-11
             justify-center
 
             rounded-full
@@ -435,9 +466,10 @@ const WhyChoose = () => {
 
         <span
           className="
-            text-lg
+            text-base
             font-medium
             text-[#4C3828]
+            sm:text-lg
           "
         >
           {item}
@@ -465,8 +497,10 @@ const WhyChoose = () => {
     bg-gradient-to-r
     from-[#D8A23C]
     to-[#BB7F17]
-    px-8
-    py-4
+    px-6
+    py-3
+    sm:px-8
+    sm:py-4
     font-semibold
     text-white
     shadow-xl
@@ -493,9 +527,9 @@ const WhyChoose = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mt-20"
+          className="mt-12 md:mt-20"
         >
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-4">
 
             {stats.map((item, index) => {
 
@@ -516,11 +550,13 @@ const WhyChoose = () => {
                     group
                     relative
                     overflow-hidden
-                    rounded-[28px]
+                    rounded-[20px]
                     border
                     border-[#E9DCC8]
                     bg-white/90
-                    p-8
+                    p-4
+                    sm:rounded-[28px]
+                    sm:p-8
                     shadow-[0_15px_40px_rgba(0,0,0,.08)]
                     backdrop-blur-md
                   "
@@ -546,10 +582,13 @@ const WhyChoose = () => {
                   <div
                     className="
                       relative
-                      mb-6
+                      mb-4
                       flex
-                      h-14
-                      w-14
+                      h-11
+                      w-11
+                      sm:mb-6
+                      sm:h-14
+                      sm:w-14
                       items-center
                       justify-center
                       rounded-2xl
@@ -568,8 +607,9 @@ const WhyChoose = () => {
                   <h3
                     className="
                       relative
-                      text-4xl
+                      text-2xl
                       font-black
+                      sm:text-4xl
                       text-[#3A2618]
                     "
                   >
@@ -603,14 +643,15 @@ const WhyChoose = () => {
             whileInView={{ opacity: 1 }}
             transition={{ delay: .3 }}
             viewport={{ once: true }}
-            className="mx-auto mt-20 max-w-4xl text-center"
+            className="mx-auto mt-12 max-w-4xl text-center md:mt-20"
           >
 
             <p
               className="
-                text-3xl
+                text-xl
                 italic
                 leading-relaxed
+                md:text-3xl
                 text-[#5C4633]
               "
             >

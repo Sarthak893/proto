@@ -50,8 +50,8 @@ const Hero = () => {
       className="
         relative
     
-        h-[55vh]
-        sm:h-[65vh]
+        h-[42vh]
+        sm:h-[55vh]
         md:h-[75vh]
         lg:h-[90vh]
         xl:h-[calc(100vh-96px)]

@@ -1,7 +1,6 @@
 import { IoArrowForward } from "react-icons/io5";
 
 import paperBg from "../../assets/categories/paper-bg.jpg";
-import bg from "../../assets/categories/bg.jpg";
 
 import i1 from "../../assets/categories/i1.jpg";
 import i2 from "../../assets/categories/i2.jpg";
@@ -99,7 +98,8 @@ const CategoryCard = ({ item }) => {
             src={item.image}
             alt={item.title}
             className="
-            h-72
+            h-52
+            sm:h-72
             w-full
             object-cover
             transition-all
@@ -111,11 +111,12 @@ const CategoryCard = ({ item }) => {
 
       </div>
 
-      <div className="px-6 pb-7">
+      <div className="px-5 pb-6 sm:px-6 sm:pb-7">
 
         <h3
           className="
-          text-[26px]
+          text-[22px]
+          sm:text-[26px]
           font-bold
           text-[#3A2618]
           "
@@ -189,7 +190,7 @@ const FeaturedCategories = () => {
       return (
     <section
       id="categories"
-      className="relative overflow-hidden py-28"
+      className="relative overflow-hidden py-16 md:py-28"
       style={{
         backgroundImage: `url(${paperBg})`,
         backgroundRepeat: "repeat",
@@ -197,15 +198,15 @@ const FeaturedCategories = () => {
         backgroundColor: "#FFF9F3",
       }}
     >
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
         {/* Heading */}
 
-        <div className="mb-20 text-center">
+        <div className="mb-12 text-center md:mb-20">
 
           <h2
             className="
-              text-4xl
+              text-3xl
               font-bold
               text-[#3A2618]
               md:text-5xl
@@ -219,7 +220,8 @@ const FeaturedCategories = () => {
               mx-auto
               mt-5
               max-w-3xl
-              text-lg
+              text-base
+              md:text-lg
               leading-8
               text-[#715C4A]
             "
@@ -238,11 +240,13 @@ const FeaturedCategories = () => {
             className="
               relative
               z-20
-              mb-[-45px]
+              mb-0
               grid
               grid-cols-1
-              gap-8
+              gap-6
               md:grid-cols-2
+              md:gap-8
+              xl:mb-[-45px]
               xl:grid-cols-4
             "
           >
@@ -259,17 +263,19 @@ const FeaturedCategories = () => {
 
         {/* ================= SECOND ROW ================= */}
 
-        <div className="relative mt-28">
+        <div className="relative mt-8 md:mt-28">
 
           <div
             className="
               relative
               z-20
-              mb-[-45px]
+              mb-0
               grid
               grid-cols-1
-              gap-8
+              gap-6
               md:grid-cols-2
+              md:gap-8
+              xl:mb-[-45px]
               xl:grid-cols-4
             "
           >

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { FaHeart } from 'react-icons/fa'
 import { IoChevronDown, IoMenu, IoClose } from 'react-icons/io5'
 
 import woodNavbar from '../../assets/wood-navbar.jpg'
@@ -11,7 +12,7 @@ const navItems = [
   },
   {
     title: 'Products',
-    href: '#products',
+    href: '#categories',
     dropdown: true,
   },
   {
@@ -46,7 +47,8 @@ const Navbar = () => {
       <div
         className="
         relative
-        h-[96px]
+        h-[76px]
+        md:h-[96px]
         w-full
         overflow-visible
         bg-cover
@@ -78,7 +80,9 @@ const Navbar = () => {
             max-w-[1500px]
             items-center
             justify-end
-            px-10
+            px-4
+            sm:px-6
+            md:px-10
           "
         >
           {/* Hanging Logo */}
@@ -89,10 +93,14 @@ const Navbar = () => {
             draggable="false"
             className="
               absolute
-              left-4
-              -top-10
+              left-2
+              -top-5
               z-50
-              w-[365px]
+              w-[185px]
+              sm:w-[240px]
+              md:-top-10
+              md:w-[320px]
+              lg:w-[365px]
               select-none
               object-contain
               pointer-events-none
@@ -170,24 +178,45 @@ const Navbar = () => {
 
             {/* CTA */}
 
-            <button
-              className="
-                rounded-md
-                bg-[#E0AE45]
-                px-8
-                py-[13px]
-                text-[16px]
-                font-semibold
-                text-[#3C281B]
-                shadow-[0_5px_12px_rgba(0,0,0,.15)]
-                transition-all
-                duration-300
-                hover:-translate-y-1
-                hover:bg-[#D69B2D]
-              "
-            >
-              Place Order
-            </button>
+            <div className="flex items-center gap-3">
+              <button
+                className="
+                  flex
+                  items-center
+                  justify-center
+                  border-0
+                  bg-transparent
+                  px-2
+                  py-[13px]
+                  text-[#3C281B]
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                "
+                aria-label="Wishlist"
+              >
+                <FaHeart className="text-3xl" />
+              </button>
+
+              <button
+                className="
+                  rounded-md
+                  bg-[#E0AE45]
+                  px-8
+                  py-[13px]
+                  text-[16px]
+                  font-semibold
+                  text-[#3C281B]
+                  shadow-[0_5px_12px_rgba(0,0,0,.15)]
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:bg-[#D69B2D]
+                "
+              >
+                Place Order
+              </button>
+            </div>
           </div>
 
           {/* Mobile Button */}
@@ -196,6 +225,11 @@ const Navbar = () => {
             onClick={() => setMenuOpen(!menuOpen)}
             className="
               ml-auto
+              relative
+              z-[60]
+              rounded-md
+              bg-[#f4e0b8]/70
+              p-2
               text-3xl
               text-[#4B2F1C]
               lg:hidden
@@ -220,7 +254,7 @@ const Navbar = () => {
                 lg:hidden
               "
             >
-              <nav className="flex flex-col pt-10">
+              <nav className="flex flex-col pt-2">
 
                 {navItems.map((item) => (
                   <a
@@ -233,8 +267,8 @@ const Navbar = () => {
                       justify-between
                       border-b
                       border-[#d4b486]
-                      px-8
-                      py-5
+                      px-6
+                      py-4
                       text-[16px]
                       font-semibold
                       text-[#4B2F1C]
@@ -251,10 +285,26 @@ const Navbar = () => {
                   </a>
                 ))}
 
-                <div className="p-6">
+                <div className="flex gap-3 p-6">
                   <button
                     className="
-                      w-full
+                      flex
+                      items-center
+                      justify-center
+                      border-0
+                      bg-transparent
+                      px-2
+                      py-3
+                      text-[#3C281B]
+                    "
+                    aria-label="Wishlist"
+                  >
+                    <FaHeart className="text-3xl" />
+                  </button>
+
+                  <button
+                    className="
+                      flex-1
                       rounded-md
                       bg-[#D5A13A]
                       py-3
