@@ -5,6 +5,7 @@ import Hero from './components/sections/Hero'
 import FeaturedCategories from './components/sections/FeaturedCatergories'
 import WhyChoose from './components/sections/WhyChooseUs'
 import About from './components/sections/About'
+import Testimonial from './components/sections/Testimonial'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <About />
         <WhyChoose />
         <FeaturedCategories />
+        <Testimonial/>
       </main>
 
       <Footer />
