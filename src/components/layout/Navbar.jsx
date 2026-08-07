@@ -1,10 +1,8 @@
 import { useState } from 'react'
-import { FaHeart, IoChevronDown, IoMenu, IoClose } from '../ui/Icons'
+import { ChevronDownIcon, CloseIcon, HeartIcon, MenuIcon } from '../ui/Icons'
 
 import woodNavbar from '../../assets/wood-navbar.webp'
-
-const logo = '/images/logo-400.webp'
-const logoSrcSet = '/images/logo-200.webp 200w, /images/logo-400.webp 400w, /images/logo-800.webp 800w'
+import logo from '../../assets/logo.webp'
 
 const navItems = [
   {
@@ -14,6 +12,7 @@ const navItems = [
   {
     title: 'Products',
     href: '/products',
+    dropdown: true,
   },
   {
     title: 'About',
@@ -89,15 +88,13 @@ const Navbar = () => {
 
           <img
             src={logo}
-            srcSet={logoSrcSet}
-            sizes="(max-width: 640px) 185px, (max-width: 768px) 240px, (max-width: 1024px) 320px, 365px"
-            width={365}
-            height={243}
             alt="CraftsHabitat"
+            width={500}
+            height={334}
             loading="eager"
             fetchPriority="high"
             decoding="async"
-            draggable="false"
+            draggable={false}
             className="
               absolute
               left-2
@@ -171,7 +168,7 @@ const Navbar = () => {
                   </span>
 
                   {item.dropdown && (
-                    <IoChevronDown
+                    <ChevronDownIcon
                       className="
                         ml-1
                         text-[14px]
@@ -203,7 +200,7 @@ const Navbar = () => {
                 "
                 aria-label="Wishlist"
               >
-                <FaHeart className="text-3xl" />
+                <HeartIcon className="text-3xl" />
               </a>
 
               <a
@@ -247,7 +244,7 @@ const Navbar = () => {
               cursor-pointer
             "
           >
-            {menuOpen ? <IoClose /> : <IoMenu />}
+            {menuOpen ? <CloseIcon /> : <MenuIcon />}
           </button>
                     {/* Mobile Navigation */}
 
@@ -291,7 +288,7 @@ const Navbar = () => {
                     {item.title}
 
                     {item.dropdown && (
-                      <IoChevronDown />
+                      <ChevronDownIcon />
                     )}
                   </a>
                 ))}
@@ -312,7 +309,7 @@ const Navbar = () => {
                     "
                     aria-label="Wishlist"
                   >
-                    <FaHeart className="text-3xl" />
+                    <HeartIcon className="text-3xl" />
                   </a>
 
                   <a

@@ -1,4 +1,4 @@
-import { FaInstagram, FaWhatsapp, IoSparklesOutline } from '../ui/Icons'
+import { InstagramIcon, SparklesIcon, WhatsappIcon } from '../ui/Icons'
 
 import paperBg from '../../assets/why/paper-bg.webp'
 
@@ -33,7 +33,7 @@ const About = () => {
           <div className="grid items-center gap-6 lg:grid-cols-[1.3fr_.7fr]">
             <div>
               <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#F7E8C4] px-5 py-2 text-sm font-semibold text-[#7a4b1f]">
-                <IoSparklesOutline /> About
+                <SparklesIcon /> About
               </span>
 
               <h2 className="font-['Cormorant_Garamond'] text-3xl font-bold leading-tight text-[#3A2618] md:text-4xl">
@@ -67,7 +67,7 @@ const About = () => {
                   rel="noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-md bg-[#D8A23C] px-6 py-3 font-semibold text-[#3C281B] shadow-sm transition-all hover:-translate-y-1 hover:bg-[#c8912f]"
                 >
-                  <FaInstagram /> Visit Instagram
+                  <InstagramIcon /> Visit Instagram
                 </a>
                 <a
                   href="https://wa.me/919468121415?text=How%20can%20I%20get%20more%20info%20about%20this%3F"
@@ -75,7 +75,7 @@ const About = () => {
                   rel="noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-md border border-[#D8A23C] bg-white/40 px-6 py-3 font-semibold text-[#3C281B] transition-all hover:-translate-y-1"
                 >
-                  <FaWhatsapp /> Contact Us
+                  <WhatsappIcon /> Contact Us
                 </a>
               </div>
             </div>

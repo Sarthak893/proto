@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import {
   IoArrowForward,
   IoCheckmarkCircle,
@@ -6,7 +5,7 @@ import {
   IoDiamond,
   IoCube,
   IoPeople,
-} from "../ui/Icons";
+} from "react-icons/io5";
 
 import paperBg from "../../assets/why/paper-bg.webp";
 
@@ -66,11 +65,7 @@ const WhyChoose = () => {
 
         {/* ================= Heading ================= */}
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: .4 }}
-          viewport={{ once: true }}
+        <div
           className="mx-auto mb-12 max-w-3xl text-center md:mb-24"
         >
 
@@ -128,16 +123,11 @@ const WhyChoose = () => {
             every piece truly one of a kind.
           </p>
 
-        </motion.div>
+        </div>
 
         {/* ================= Hero Card ================= */}
 
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: .4 }}
-          viewport={{ once: true }}
-          whileHover={{ y: -5 }}
+        <div
           className="
             overflow-hidden
             rounded-[26px]
@@ -199,12 +189,7 @@ const WhyChoose = () => {
 
     {/* Main Image */}
 
-    <motion.div
-      whileHover={{
-        y: -8,
-        scale: 1.02,
-      }}
-      transition={{ duration: .35 }}
+    <div
       className="
         group
         col-span-2
@@ -217,6 +202,8 @@ const WhyChoose = () => {
       <img
         src={hero1}
         alt=""
+        width={377}
+        height={319}
         loading="lazy"
         decoding="async"
         className="
@@ -229,17 +216,11 @@ const WhyChoose = () => {
         "
       />
 
-    </motion.div>
+    </div>
 
     {/* Image 2 */}
 
-    <motion.div
-      whileHover={{
-        y: -8,
-        rotate: -2,
-        scale: 1.04,
-      }}
-      transition={{ duration: .35 }}
+    <div
       className="
         group
         overflow-hidden
@@ -251,6 +232,8 @@ const WhyChoose = () => {
       <img
         src={hero2}
         alt=""
+        width={179}
+        height={151}
         loading="lazy"
         decoding="async"
         className="
@@ -263,17 +246,11 @@ const WhyChoose = () => {
         "
       />
 
-    </motion.div>
+    </div>
 
     {/* Image 3 */}
 
-    <motion.div
-      whileHover={{
-        y: -8,
-        rotate: 2,
-        scale: 1.04,
-      }}
-      transition={{ duration: .35 }}
+    <div
       className="
         group
         overflow-hidden
@@ -285,6 +262,8 @@ const WhyChoose = () => {
       <img
         src={hero3}
         alt=""
+        width={248}
+        height={248}
         loading="lazy"
         decoding="async"
         className="
@@ -297,17 +276,14 @@ const WhyChoose = () => {
         "
       />
 
-    </motion.div>
+    </div>
 
   </div>
 
   {/* Floating Badge */}
 
-  <motion.div
+  <div
 
-    initial={{ opacity: 0, scale: .8 }}
-    whileInView={{ opacity: 1, scale: 1 }}
-    transition={{ duration: .4 }}
 
     className="
       absolute
@@ -373,7 +349,7 @@ const WhyChoose = () => {
       for every home.
     </p>
 
-  </motion.div>
+  </div>
 
 </div>
 
@@ -524,34 +500,23 @@ const WhyChoose = () => {
 
           </div>
 
-        </motion.div>
+        </div>
 
         {/* ================= Trust Statistics ================= */}
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          viewport={{ once: true }}
+        <div
           className="mt-12 md:mt-20"
         >
           <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-4">
 
-            {stats.map((item, index) => {
+            {stats.map((item) => {
 
               const Icon = item.icon;
 
               return (
 
-                <motion.div
+                <div
                   key={item.label}
-                  whileHover={{
-                    y: -8,
-                    scale: 1.04,
-                  }}
-                  transition={{
-                    duration: .3,
-                  }}
                   className="
                     group
                     relative
@@ -634,7 +599,7 @@ const WhyChoose = () => {
                     {item.label}
                   </p>
 
-                </motion.div>
+                </div>
 
               );
 
@@ -644,11 +609,7 @@ const WhyChoose = () => {
 
           {/* Quote */}
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: .4 }}
-            viewport={{ once: true }}
+          <div
             className="mx-auto mt-12 max-w-4xl text-center md:mt-20"
           >
 
@@ -666,9 +627,9 @@ const WhyChoose = () => {
               you'll cherish forever.”
             </p>
 
-          </motion.div>
+          </div>
 
-        </motion.div>
+        </div>
 
       </div>
     </section>

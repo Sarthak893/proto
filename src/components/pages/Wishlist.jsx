@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FaHeart, FaTrash, FaWhatsapp } from '../ui/Icons'
+import { FaHeart, FaTrash, FaWhatsapp } from 'react-icons/fa'
 import paperBg from '../../assets/categories/paper-bg.webp'
 import { getStoredWishlist, saveStoredWishlist } from '../data/wishlistStorage'
 const whatsappText = encodeURIComponent('Hi, I want to order items from my wishlist.')
@@ -50,6 +50,8 @@ const Wishlist = () => {
                 <img
                   src={product.image}
                   alt={product.name}
+                  width={400}
+                  height={340}
                   loading="lazy"
                   decoding="async"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"

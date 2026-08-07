@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import heroDesktop1 from "../../assets/hero/hero1.webp";
 import heroDesktop2 from "../../assets/hero/hero2.webp";
 
-const heroMobile = "/hero/hero-mobile.webp";
-const heroMobileSrcSet = "/hero/hero-mobile-480.webp 480w, /hero/hero-mobile-768.webp 768w, /hero/hero-mobile-1024.webp 1024w";
+// Mobile Hero
+import heroMobile from "../../assets/hero/hero-mobile.webp";
 
 const slides = [heroDesktop1, heroDesktop2];
 
@@ -170,38 +170,22 @@ return (
 
     <div className="block md:hidden">
       <div className="relative aspect-[9/16] overflow-hidden bg-[#FFF9F3]">
+        <img
+          src={heroMobile}
+          alt="CraftHabitat Hero"
+          width={1080}
+          height={1920}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover object-top select-none pointer-events-none"
+          draggable={false}
+        />
 
-  <img
-    src={heroMobile}
-    srcSet={heroMobileSrcSet}
-    sizes="100vw"
-    alt="CraftHabitat Hero"
-    width={1080}
-    height={1920}
-    loading="eager"
-    fetchPriority="high"
-    decoding="async"
-    className="absolute inset-0 h-full w-full object-cover object-top select-none pointer-events-none"
-    draggable={false}
-  />
+        {/* Bottom Fade */}
 
-  {/* Bottom Fade */}
-
-  <div
-    className="
-      absolute
-      bottom-0
-      left-0
-      right-0
-      h-24
-      bg-gradient-to-t
-      from-[#FFF9F3]
-      to-transparent
-    "
-  />
-
-</div>
-
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#FFF9F3] to-transparent" />
+      </div>
     </div>
 
   </section>

@@ -1,16 +1,17 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { FaEye, FaHeart, FaRegHeart, FaWhatsapp, IoArrowForward, IoClose, IoSearchOutline } from '../ui/Icons'
+import { FaEye, FaHeart, FaRegHeart, FaWhatsapp } from 'react-icons/fa'
+import { IoArrowForward, IoClose, IoSearchOutline } from 'react-icons/io5'
 import paperBg from '../../assets/categories/paper-bg.webp'
 import pot from '../../assets/pot.webp'
-import i1 from '../../assets/categories/i1.jpg'
-import i2 from '../../assets/categories/i2.jpg'
-import i3 from '../../assets/categories/i3.jpg'
-import i4 from '../../assets/categories/i4.jpg'
-import i5 from '../../assets/categories/i5.jpg'
-import i6 from '../../assets/categories/i6.jpg'
-import i7 from '../../assets/categories/i7.jpg'
-import i8 from '../../assets/categories/i8.jpg'
+import i1 from '../../assets/categories/i1.webp'
+import i2 from '../../assets/categories/i2.webp'
+import i3 from '../../assets/categories/i3.webp'
+import i4 from '../../assets/categories/i4.webp'
+import i5 from '../../assets/categories/i5.webp'
+import i6 from '../../assets/categories/i6.webp'
+import i7 from '../../assets/categories/i7.webp'
+import i8 from '../../assets/categories/i8.webp'
 import { getStoredWishlist, saveStoredWishlist } from '../data/wishlistStorage'
 
 const categories = [
@@ -132,6 +133,8 @@ const Products = () => {
             <img
               src={pot}
               alt="Decorative nature pot"
+              width={500}
+              height={750}
               loading="lazy"
               decoding="async"
               className="absolute right-0 top-0 w-52 select-none object-contain drop-shadow-[0_18px_28px_rgba(58,37,23,.22)]"
@@ -231,6 +234,8 @@ const Products = () => {
                 <img
                   src={product.image}
                   alt={product.name}
+                  width={400}
+                  height={340}
                   loading="lazy"
                   decoding="async"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -316,7 +321,15 @@ const Products = () => {
             >
               <IoClose />
             </button>
-            <img src={selectedProduct.image} alt={selectedProduct.name} loading="lazy" decoding="async" className="h-full min-h-80 w-full object-cover" />
+            <img
+              src={selectedProduct.image}
+              alt={selectedProduct.name}
+              width={800}
+              height={680}
+              loading="lazy"
+              decoding="async"
+              className="h-full min-h-80 w-full object-cover"
+            />
             <div className="p-7">
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#8a541f]">{selectedProduct.category}</p>
               <h2 className="text-3xl font-bold text-[#3a2517]">{selectedProduct.name}</h2>

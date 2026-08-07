@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
-import { IoArrowForward } from "../ui/Icons";
+import { ArrowForwardIcon } from "../ui/Icons";
 
 import paperBg from "../../assets/categories/paper-bg.webp";
 
-import i1 from "../../assets/categories/i1.jpg";
-import i2 from "../../assets/categories/i2.jpg";
-import i3 from "../../assets/categories/i3.jpg";
-import i4 from "../../assets/categories/i4.jpg";
-import i5 from "../../assets/categories/i5.jpg";
-import i6 from "../../assets/categories/i6.jpg";
-import i7 from "../../assets/categories/i7.jpg";
-import i8 from "../../assets/categories/i8.jpg";
+import i1 from "../../assets/categories/i1.webp";
+import i2 from "../../assets/categories/i2.webp";
+import i3 from "../../assets/categories/i3.webp";
+import i4 from "../../assets/categories/i4.webp";
+import i5 from "../../assets/categories/i5.webp";
+import i6 from "../../assets/categories/i6.webp";
+import i7 from "../../assets/categories/i7.webp";
+import i8 from "../../assets/categories/i8.webp";
 
 const categories = [
   {
@@ -100,6 +100,8 @@ const CategoryCard = ({ item }) => {
           <img
             src={item.image}
             alt={item.title}
+            width={400}
+            height={340}
             loading="lazy"
             decoding="async"
             className="
@@ -179,7 +181,7 @@ const CategoryCard = ({ item }) => {
             group-hover:scale-110
             "
           >
-            <IoArrowForward size={18} />
+            <ArrowForwardIcon size={18} />
           </span>
 
         </div>

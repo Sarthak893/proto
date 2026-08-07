@@ -9,27 +9,21 @@ export default defineConfig({
     react(),
     tailwindcss(),
     visualizer({
-      filename: 'dist/stats.html',
-      open: false,
+      open: true,
       gzipSize: true,
       brotliSize: true,
     }),
   ],
   build: {
-    cssCodeSplit: true,
-    modulePreload: {
-      resolveDependencies(_filename, deps) {
-        return deps.filter((dep) => !/motion|icons|Footer|WhyChooseUs|Testimonial|Products|Wishlist/.test(dep))
-      },
-    },
+    modulePreload: false,
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (!id.includes('node_modules')) return undefined
-          if (id.includes('react-router-dom')) return 'router'
-          if (id.includes('framer-motion')) return 'motion'
-          if (id.includes('/react/') || id.includes('/react-dom/') || id.includes('scheduler')) return 'react'
-          return 'vendor'
+          if (!id.includes('node_modules')) return
+          if (id.includes('/react-icons/')) return 'icons'
+          if (id.includes('/framer-motion/')) return 'motion'
+          if (id.includes('/react-router-dom/') || id.includes('/@remix-run/')) return 'router'
+          if (id.includes('/react/') || id.includes('/react-dom/') || id.includes('/scheduler/')) return 'react'
         },
       },
     },

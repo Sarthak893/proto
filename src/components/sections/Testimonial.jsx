@@ -2,18 +2,18 @@ import { motion } from "framer-motion";
 
 import paperBg from "../../assets/why/paper-bg.webp";
 
-import r1 from "../../assets/reviews/r1.jpg";
-import r2 from "../../assets/reviews/r2.jpg";
-import r3 from "../../assets/reviews/r3.jpg";
-import r4 from "../../assets/reviews/r4.jpg";
-import r5 from "../../assets/reviews/r5.jpg";
-import r6 from "../../assets/reviews/r6.jpg";
-import r7 from "../../assets/reviews/r7.jpg";
-import r8 from "../../assets/reviews/r8.jpg";
-import r9 from "../../assets/reviews/r9.jpg";
-import r10 from "../../assets/reviews/r10.jpg";
-import r11 from "../../assets/reviews/r11.jpg";
-import r12 from "../../assets/reviews/r12.jpg";
+import r1 from "../../assets/reviews/r1.webp";
+import r2 from "../../assets/reviews/r2.webp";
+import r3 from "../../assets/reviews/r3.webp";
+import r4 from "../../assets/reviews/r4.webp";
+import r5 from "../../assets/reviews/r5.webp";
+import r6 from "../../assets/reviews/r6.webp";
+import r7 from "../../assets/reviews/r7.webp";
+import r8 from "../../assets/reviews/r8.webp";
+import r9 from "../../assets/reviews/r9.webp";
+import r10 from "../../assets/reviews/r10.webp";
+import r11 from "../../assets/reviews/r11.webp";
+import r12 from "../../assets/reviews/r12.webp";
 import { useEffect, useState } from "react";
 
 // inside Testimonials()
@@ -132,6 +132,8 @@ ${heights[index % heights.length]}
         <img
           src={image}
           alt=""
+          width={500}
+          height={885}
           loading="lazy"
           decoding="async"
           className="
@@ -227,7 +229,7 @@ md:py-28
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
           className="mb-10 md:mb-24 text-center"
         >
@@ -381,7 +383,7 @@ md:-space-x-8
 <motion.div
   initial={{ opacity: 0 }}
   whileInView={{ opacity: 1 }}
-  transition={{ duration: .4 }}
+  transition={{ delay: .3 }}
   viewport={{ once: true }}
   className="mx-auto mt-24 max-w-4xl text-center"
 >
@@ -406,7 +408,7 @@ md:-space-x-8
 <motion.div
   initial={{ opacity: 0, y: 40 }}
   whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: .4 }}
+  transition={{ duration: .7 }}
   viewport={{ once: true }}
   className="
     mt-24
