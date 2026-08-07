@@ -14,6 +14,20 @@ import r9 from "../../assets/reviews/r9.jpg";
 import r10 from "../../assets/reviews/r10.jpg";
 import r11 from "../../assets/reviews/r11.jpg";
 import r12 from "../../assets/reviews/r12.jpg";
+import { useEffect, useState } from "react";
+
+// inside Testimonials()
+const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+  const check = () => setIsMobile(window.innerWidth < 768);
+
+  check();
+
+  window.addEventListener("resize", check);
+
+  return () => window.removeEventListener("resize", check);
+}, []);
 
 const row1 = [r1, r2, r3, r4];
 const row2 = [r5, r6, r7, r8];
@@ -61,18 +75,27 @@ const ReviewCard = ({ image, index }) => {
         relative
 
         flex-shrink-0
+w-[155px]
+h-[270px]
 
-        w-[220px]
-        sm:w-[250px]
-        md:w-[270px]
-        lg:w-[300px]
-        xl:w-[320px]
+sm:w-[170px]
+sm:h-[300px]
+md:w-[270px]
+md:h-[500px]
 
-        ${heights[index % heights.length]}
+lg:w-[300px]
+lg:h-[560px]
+
+        const heights = [
+  "md:h-[480px]",
+  "md:h-[520px]",
+  "md:h-[500px]",
+  "md:h-[540px]",
+];
 
         overflow-hidden
 
-        rounded-[32px]
+        rounded-3xl
 
         border
         border-[#E7D8C5]
@@ -178,7 +201,14 @@ const Testimonials = () => {
   return (
     <section
       id="reviews"
-      className="relative scroll-mt-[96px] overflow-hidden py-28"
+      className="
+relative
+scroll-mt-[96px]
+overflow-hidden
+
+py-14
+md:py-28
+"
       style={{
         backgroundImage: `url(${paperBg})`,
         backgroundRepeat: "repeat",
@@ -201,7 +231,7 @@ const Testimonials = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="mb-24 text-center"
+          className="mb-10 md:mb-24 text-center"
         >
           <span
             className="
@@ -262,11 +292,16 @@ const Testimonials = () => {
       x: ["0%", "-50%"],
     }}
     transition={{
-      duration: 42,
-      repeat: Infinity,
-      ease: "linear",
-    }}
-    className="flex -space-x-8"
+  duration: isMobile ? 10 : 42,
+  repeat: Infinity,
+  ease: "linear",
+}}
+    className="
+flex
+
+
+md:-space-x-8
+"
   >
 
     {[...row1, ...row1].map((image, index) => (
@@ -292,10 +327,10 @@ const Testimonials = () => {
       x: ["-50%", "0%"],
     }}
     transition={{
-      duration: 56,
-      repeat: Infinity,
-      ease: "linear",
-    }}
+  duration: isMobile ? 12 : 56,
+  repeat: Infinity,
+  ease: "linear",
+}}
     className="flex -space-x-8"
   >
 
@@ -322,10 +357,10 @@ const Testimonials = () => {
       x: ["0%", "-50%"],
     }}
     transition={{
-      duration: 48,
-      repeat: Infinity,
-      ease: "linear",
-    }}
+  duration: isMobile ? 11 : 48,
+  repeat: Infinity,
+  ease: "linear",
+}}
     className="flex -space-x-8"
   >
 
@@ -382,6 +417,8 @@ const Testimonials = () => {
     grid-cols-2
     gap-6
 
+    
+
     lg:grid-cols-4
   "
 >
@@ -431,7 +468,9 @@ const Testimonials = () => {
 
         bg-white/80
 
-        p-8
+        p-5
+
+md:p-8
 
         text-center
 
@@ -470,7 +509,9 @@ const Testimonials = () => {
         className="
           relative
 
-          text-4xl
+          text-3xl
+
+md:text-4xl
           font-black
 
           text-[#D39A31]
