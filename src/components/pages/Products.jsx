@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { FaEye, FaHeart, FaRegHeart, FaWhatsapp } from 'react-icons/fa'
 import { IoArrowForward, IoClose, IoSearchOutline } from 'react-icons/io5'
 import paperBg from '../../assets/categories/paper-bg.jpg'
@@ -43,13 +44,32 @@ const products = [
   { name: 'Made-To-Order Craft', category: 'Customization', price: 1599, image: i8, isNew: false },
 ]
 
+const getCategoryFromParams = (searchParams) => {
+  const category = searchParams.get('category')
+  return categories.includes(category) ? category : 'All'
+}
+
 const Products = () => {
+  const [searchParams, setSearchParams] = useSearchParams()
   const [search, setSearch] = useState('')
-  const [activeCategory, setActiveCategory] = useState('All')
+  const [activeCategory, setActiveCategory] = useState(() => getCategoryFromParams(searchParams))
   const [sortBy, setSortBy] = useState('newest')
   const [maxPrice, setMaxPrice] = useState(2000)
   const [likedProducts, setLikedProducts] = useState(() => getStoredWishlist())
   const [selectedProduct, setSelectedProduct] = useState(null)
+
+  useEffect(() => {
+    setActiveCategory(getCategoryFromParams(searchParams))
+  }, [searchParams])
+
+  const handleCategoryChange = (category) => {
+    setActiveCategory(category)
+    if (category === 'All') {
+      setSearchParams({})
+    } else {
+      setSearchParams({ category })
+    }
+  }
 
   const filteredProducts = useMemo(() => {
     const searchedProducts = products.filter((product) => {
@@ -69,7 +89,7 @@ const Products = () => {
 
   const clearFilters = () => {
     setSearch('')
-    setActiveCategory('All')
+    handleCategoryChange('All')
     setSortBy('newest')
     setMaxPrice(2000)
   }
@@ -136,7 +156,7 @@ const Products = () => {
             Category
             <select
               value={activeCategory}
-              onChange={(event) => setActiveCategory(event.target.value)}
+              onChange={(event) => handleCategoryChange(event.target.value)}
               className="w-full rounded-xl border border-[#d9bd91] bg-white/90 px-4 py-3 outline-none transition focus:border-[#D69B2D] focus:ring-2 focus:ring-[#E0AE45]/30"
             >
               <option value="All">All</option>

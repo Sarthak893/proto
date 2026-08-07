@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { IoArrowForward } from "react-icons/io5";
 
 import paperBg from "../../assets/categories/paper-bg.jpg";
@@ -67,9 +68,11 @@ const secondRow = categories.slice(4, 8);
 
 const CategoryCard = ({ item }) => {
   return (
-    <div
+    <Link
+      to={`/products?category=${encodeURIComponent(item.title)}`}
       className="
       group
+      block
       relative
       z-20
       overflow-hidden
@@ -158,7 +161,7 @@ const CategoryCard = ({ item }) => {
             {item.count}
           </span>
 
-          <button
+          <span
             className="
             flex
             h-12
@@ -175,13 +178,13 @@ const CategoryCard = ({ item }) => {
             "
           >
             <IoArrowForward size={18} />
-          </button>
+          </span>
 
         </div>
 
       </div>
 
-    </div>
+    </Link>
   );
 };
 

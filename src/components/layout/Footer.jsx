@@ -2,7 +2,7 @@ import { FaWhatsapp } from 'react-icons/fa'
 import { IoCallOutline, IoChevronDown, IoLocationOutline, IoMailOutline } from 'react-icons/io5'
 import { RiInstagramLine } from 'react-icons/ri'
 import pot from '../../assets/pot.png'
-import paperBg from '../../assets/categories/paper-bg.jpg'
+import paperBg from '../../assets/why/paper-bg.jpg'
 
 const quickLinks = [
   { title: 'Home', href: '/#home' },
@@ -43,8 +43,9 @@ const Footer = () => {
         className="relative overflow-hidden border-b border-[#3a2517]/20 px-4 py-8 sm:px-6 md:px-10"
         style={{
           backgroundImage: `url(${paperBg})`,
-          backgroundRepeat: 'repeat',
-          backgroundSize: '650px',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
           backgroundColor: '#FFF9F3',
         }}
       >
