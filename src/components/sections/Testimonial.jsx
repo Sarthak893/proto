@@ -17,17 +17,8 @@ import r12 from "../../assets/reviews/r12.jpg";
 import { useEffect, useState } from "react";
 
 // inside Testimonials()
-const [isMobile, setIsMobile] = useState(false);
 
-useEffect(() => {
-  const check = () => setIsMobile(window.innerWidth < 768);
 
-  check();
-
-  window.addEventListener("resize", check);
-
-  return () => window.removeEventListener("resize", check);
-}, []);
 
 const row1 = [r1, r2, r3, r4];
 const row2 = [r5, r6, r7, r8];
@@ -41,10 +32,10 @@ const rotations = [
 ];
 
 const heights = [
-  "h-[540px]",
-  "h-[590px]",
-  "h-[560px]",
-  "h-[610px]",
+  "md:h-[480px]",
+  "md:h-[520px]",
+  "md:h-[500px]",
+  "md:h-[540px]",
 ];
 
 const floating = [
@@ -80,18 +71,11 @@ h-[270px]
 
 sm:w-[170px]
 sm:h-[300px]
+
 md:w-[270px]
-md:h-[500px]
-
 lg:w-[300px]
-lg:h-[560px]
 
-        const heights = [
-  "md:h-[480px]",
-  "md:h-[520px]",
-  "md:h-[500px]",
-  "md:h-[540px]",
-];
+${heights[index % heights.length]}
 
         overflow-hidden
 
@@ -198,6 +182,18 @@ lg:h-[560px]
   );
 };
 const Testimonials = () => {
+
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+  const check = () => setIsMobile(window.innerWidth < 768);
+
+  check();
+
+  window.addEventListener("resize", check);
+
+  return () => window.removeEventListener("resize", check);
+}, []);
+
   return (
     <section
       id="reviews"
