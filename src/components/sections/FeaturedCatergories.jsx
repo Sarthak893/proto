@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { IoArrowForward } from "react-icons/io5";
 
-import paperBg from "../../assets/categories/paper-bg.jpg";
+import paperBg from "../../assets/why/paper-bg.jpg";
 
 import i1 from "../../assets/categories/i1.jpg";
 import i2 from "../../assets/categories/i2.jpg";

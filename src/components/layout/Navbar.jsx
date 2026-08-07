@@ -13,7 +13,6 @@ const navItems = [
   {
     title: 'Products',
     href: '/products',
-    dropdown: true,
   },
   {
     title: 'About',
