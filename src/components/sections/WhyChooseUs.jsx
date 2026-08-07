@@ -6,13 +6,13 @@ import {
   IoDiamond,
   IoCube,
   IoPeople,
-} from "react-icons/io5";
+} from "../ui/Icons";
 
-import paperBg from "../../assets/why/paper-bg.jpg";
+import paperBg from "../../assets/why/paper-bg.webp";
 
-import hero1 from "../../assets/why/hero1.jpg";
-import hero2 from "../../assets/why/hero2.jpg";
-import hero3 from "../../assets/why/hero3.jpg";
+import hero1 from "../../assets/why/hero1.webp";
+import hero2 from "../../assets/why/hero2.webp";
+import hero3 from "../../assets/why/hero3.webp";
 
 const highlights = [
   "100% Handmade",
@@ -69,7 +69,7 @@ const WhyChoose = () => {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: .7 }}
+          transition={{ duration: .4 }}
           viewport={{ once: true }}
           className="mx-auto mb-12 max-w-3xl text-center md:mb-24"
         >
@@ -135,7 +135,7 @@ const WhyChoose = () => {
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: .8 }}
+          transition={{ duration: .4 }}
           viewport={{ once: true }}
           whileHover={{ y: -5 }}
           className="
@@ -217,6 +217,8 @@ const WhyChoose = () => {
       <img
         src={hero1}
         alt=""
+        loading="lazy"
+        decoding="async"
         className="
           h-full
           w-full
@@ -249,6 +251,8 @@ const WhyChoose = () => {
       <img
         src={hero2}
         alt=""
+        loading="lazy"
+        decoding="async"
         className="
           h-full
           w-full
@@ -281,6 +285,8 @@ const WhyChoose = () => {
       <img
         src={hero3}
         alt=""
+        loading="lazy"
+        decoding="async"
         className="
           h-full
           w-full
@@ -301,7 +307,7 @@ const WhyChoose = () => {
 
     initial={{ opacity: 0, scale: .8 }}
     whileInView={{ opacity: 1, scale: 1 }}
-    transition={{ delay: .4 }}
+    transition={{ duration: .4 }}
 
     className="
       absolute
@@ -525,7 +531,7 @@ const WhyChoose = () => {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
           className="mt-12 md:mt-20"
         >
@@ -641,7 +647,7 @@ const WhyChoose = () => {
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ delay: .3 }}
+            transition={{ duration: .4 }}
             viewport={{ once: true }}
             className="mx-auto mt-12 max-w-4xl text-center md:mt-20"
           >

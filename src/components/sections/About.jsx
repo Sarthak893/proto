@@ -1,7 +1,6 @@
-import { FaInstagram, FaWhatsapp } from 'react-icons/fa'
-import { IoSparklesOutline } from 'react-icons/io5'
+import { FaInstagram, FaWhatsapp, IoSparklesOutline } from '../ui/Icons'
 
-import paperBg from '../../assets/why/paper-bg.jpg'
+import paperBg from '../../assets/why/paper-bg.webp'
 
 const highlights = [
   'Custom nameplates, magnets & gifts',

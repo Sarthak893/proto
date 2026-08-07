@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-import heroDesktop1 from "../../assets/hero/hero1.jpg";
-import heroDesktop2 from "../../assets/hero/hero2.jpg";
+import heroDesktop1 from "../../assets/hero/hero1.webp";
+import heroDesktop2 from "../../assets/hero/hero2.webp";
 
-// Mobile Hero
-import heroMobile from "../../assets/hero/ChatGPT Image Aug 6, 2026, 08_56_41 PM.png";
+const heroMobile = "/hero/hero-mobile.webp";
+const heroMobileSrcSet = "/hero/hero-mobile-480.webp 480w, /hero/hero-mobile-768.webp 768w, /hero/hero-mobile-1024.webp 1024w";
 
 const slides = [heroDesktop1, heroDesktop2];
 
@@ -85,6 +85,11 @@ return (
             <img
               src={image}
               alt={`Hero ${index + 1}`}
+              width={1920}
+              height={1080}
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "auto"}
+              decoding="async"
               className="
                 h-full
                 w-full
@@ -164,25 +169,20 @@ return (
     {/* ===================== Mobile Hero Starts ===================== */}
 
     <div className="block md:hidden">
-      <div
-  className="
-    relative
-    bg-[#FFF9F3]
-  "
->
+      <div className="relative aspect-[9/16] overflow-hidden bg-[#FFF9F3]">
 
   <img
     src={heroMobile}
+    srcSet={heroMobileSrcSet}
+    sizes="100vw"
     alt="CraftHabitat Hero"
-    className="
-      w-full
-      h-auto
-      object-cover
-      object-top
-      select-none
-      pointer-events-none
-    "
-    draggable="false"
+    width={1080}
+    height={1920}
+    loading="eager"
+    fetchPriority="high"
+    decoding="async"
+    className="absolute inset-0 h-full w-full object-cover object-top select-none pointer-events-none"
+    draggable={false}
   />
 
   {/* Bottom Fade */}

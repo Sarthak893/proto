@@ -1,8 +1,6 @@
-import { FaWhatsapp } from 'react-icons/fa'
-import { IoCallOutline, IoChevronDown, IoLocationOutline, IoMailOutline } from 'react-icons/io5'
-import { RiInstagramLine } from 'react-icons/ri'
-import pot from '../../assets/pot.png'
-import paperBg from '../../assets/why/paper-bg.jpg'
+import { FaWhatsapp, IoCallOutline, IoChevronDown, IoLocationOutline, IoMailOutline, RiInstagramLine } from '../ui/Icons'
+import pot from '../../assets/pot.webp'
+import paperBg from '../../assets/why/paper-bg.webp'
 
 const quickLinks = [
   { title: 'Home', href: '/#home' },
@@ -52,6 +50,8 @@ const Footer = () => {
         <img
           src={pot}
           alt="Decorative plant pot"
+          loading="lazy"
+          decoding="async"
           className="pointer-events-none absolute -right-3 -top-14 hidden w-36 select-none object-contain drop-shadow-[0_8px_14px_rgba(0,0,0,.18)] lg:block"
         />
         <div className="mx-auto grid max-w-[1500px] grid-cols-2 gap-x-5 gap-y-8 sm:gap-8 lg:grid-cols-[1.3fr_.9fr_.95fr_1.1fr_1.35fr]">

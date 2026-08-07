@@ -1,9 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { FaEye, FaHeart, FaRegHeart, FaWhatsapp } from 'react-icons/fa'
-import { IoArrowForward, IoClose, IoSearchOutline } from 'react-icons/io5'
-import paperBg from '../../assets/categories/paper-bg.jpg'
-import pot from '../../assets/pot.png'
+import { FaEye, FaHeart, FaRegHeart, FaWhatsapp, IoArrowForward, IoClose, IoSearchOutline } from '../ui/Icons'
+import paperBg from '../../assets/categories/paper-bg.webp'
+import pot from '../../assets/pot.webp'
 import i1 from '../../assets/categories/i1.jpg'
 import i2 from '../../assets/categories/i2.jpg'
 import i3 from '../../assets/categories/i3.jpg'
@@ -133,6 +132,8 @@ const Products = () => {
             <img
               src={pot}
               alt="Decorative nature pot"
+              loading="lazy"
+              decoding="async"
               className="absolute right-0 top-0 w-52 select-none object-contain drop-shadow-[0_18px_28px_rgba(58,37,23,.22)]"
             />
           </div>
@@ -230,6 +231,8 @@ const Products = () => {
                 <img
                   src={product.image}
                   alt={product.name}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#3a2517]/55 via-transparent to-transparent opacity-70" />
@@ -313,7 +316,7 @@ const Products = () => {
             >
               <IoClose />
             </button>
-            <img src={selectedProduct.image} alt={selectedProduct.name} className="h-full min-h-80 w-full object-cover" />
+            <img src={selectedProduct.image} alt={selectedProduct.name} loading="lazy" decoding="async" className="h-full min-h-80 w-full object-cover" />
             <div className="p-7">
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#8a541f]">{selectedProduct.category}</p>
               <h2 className="text-3xl font-bold text-[#3a2517]">{selectedProduct.name}</h2>

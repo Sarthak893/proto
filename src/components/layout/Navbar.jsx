@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import { FaHeart } from 'react-icons/fa'
-import { IoChevronDown, IoMenu, IoClose } from 'react-icons/io5'
+import { FaHeart, IoChevronDown, IoMenu, IoClose } from '../ui/Icons'
 
-import woodNavbar from '../../assets/wood-navbar.jpg'
-import logo from '../../assets/logo.jpg'
+import woodNavbar from '../../assets/wood-navbar.webp'
+
+const logo = '/images/logo-400.webp'
+const logoSrcSet = '/images/logo-200.webp 200w, /images/logo-400.webp 400w, /images/logo-800.webp 800w'
 
 const navItems = [
   {
@@ -88,7 +89,14 @@ const Navbar = () => {
 
           <img
             src={logo}
+            srcSet={logoSrcSet}
+            sizes="(max-width: 640px) 185px, (max-width: 768px) 240px, (max-width: 1024px) 320px, 365px"
+            width={365}
+            height={243}
             alt="CraftsHabitat"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             draggable="false"
             className="
               absolute

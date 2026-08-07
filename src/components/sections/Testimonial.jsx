@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import paperBg from "../../assets/why/paper-bg.jpg";
+import paperBg from "../../assets/why/paper-bg.webp";
 
 import r1 from "../../assets/reviews/r1.jpg";
 import r2 from "../../assets/reviews/r2.jpg";
@@ -132,6 +132,8 @@ ${heights[index % heights.length]}
         <img
           src={image}
           alt=""
+          loading="lazy"
+          decoding="async"
           className="
             h-full
             w-full
@@ -225,7 +227,7 @@ md:py-28
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
           className="mb-10 md:mb-24 text-center"
         >
@@ -379,7 +381,7 @@ md:-space-x-8
 <motion.div
   initial={{ opacity: 0 }}
   whileInView={{ opacity: 1 }}
-  transition={{ delay: .3 }}
+  transition={{ duration: .4 }}
   viewport={{ once: true }}
   className="mx-auto mt-24 max-w-4xl text-center"
 >
@@ -404,7 +406,7 @@ md:-space-x-8
 <motion.div
   initial={{ opacity: 0, y: 40 }}
   whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: .7 }}
+  transition={{ duration: .4 }}
   viewport={{ once: true }}
   className="
     mt-24
