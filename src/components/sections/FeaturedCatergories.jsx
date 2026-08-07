@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { IoArrowForward } from "../ui/Icons";
 
 import paperBg from "../../assets/categories/paper-bg.webp";
-import paperBg from "../../assets/why/paper-bg.jpg";
 
 import i1 from "../../assets/categories/i1.jpg";
 import i2 from "../../assets/categories/i2.jpg";
