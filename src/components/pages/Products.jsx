@@ -11,6 +11,7 @@ import i5 from '../../assets/categories/i5.jpg'
 import i6 from '../../assets/categories/i6.jpg'
 import i7 from '../../assets/categories/i7.jpg'
 import i8 from '../../assets/categories/i8.jpg'
+import { getStoredWishlist, saveStoredWishlist } from '../data/wishlistStorage'
 
 const categories = [
   'Nameplates',
@@ -47,9 +48,8 @@ const Products = () => {
   const [activeCategory, setActiveCategory] = useState('All')
   const [sortBy, setSortBy] = useState('newest')
   const [maxPrice, setMaxPrice] = useState(2000)
-  const [likedProducts, setLikedProducts] = useState([])
+  const [likedProducts, setLikedProducts] = useState(() => getStoredWishlist())
   const [selectedProduct, setSelectedProduct] = useState(null)
-  const [showReviews, setShowReviews] = useState(false)
 
   const filteredProducts = useMemo(() => {
     const searchedProducts = products.filter((product) => {
@@ -74,21 +74,24 @@ const Products = () => {
     setMaxPrice(2000)
   }
 
-  const toggleLike = (productName) => {
-    setLikedProducts((currentProducts) => currentProducts.includes(productName)
-      ? currentProducts.filter((name) => name !== productName)
-      : [...currentProducts, productName]
-    )
+  const toggleLike = (product) => {
+    setLikedProducts((currentProducts) => {
+      const isAlreadyLiked = currentProducts.some((currentProduct) => currentProduct.name === product.name)
+      const updatedProducts = isAlreadyLiked
+        ? currentProducts.filter((currentProduct) => currentProduct.name !== product.name)
+        : [...currentProducts, product]
+
+      saveStoredWishlist(updatedProducts)
+      return updatedProducts
+    })
   }
 
   const openProductDetails = (product) => {
     setSelectedProduct(product)
-    setShowReviews(false)
   }
 
   const closeProductDetails = () => {
     setSelectedProduct(null)
-    setShowReviews(false)
   }
 
   return (
@@ -224,11 +227,11 @@ const Products = () => {
                 <div className="absolute right-4 top-16 flex flex-col gap-2 opacity-0 transition-all duration-300 group-hover:opacity-100">
                   <button
                     type="button"
-                    onClick={() => toggleLike(product.name)}
+                    onClick={() => toggleLike(product)}
                     className="grid h-10 w-10 place-items-center rounded-full bg-white/95 text-[#b83232] shadow-md transition hover:-translate-y-1"
                     aria-label="Add to wishlist"
                   >
-                    {likedProducts.includes(product.name) ? <FaHeart /> : <FaRegHeart />}
+                    {likedProducts.some((likedProduct) => likedProduct.name === product.name) ? <FaHeart /> : <FaRegHeart />}
                   </button>
                   <button
                     type="button"
@@ -308,22 +311,14 @@ const Products = () => {
                   <FaWhatsapp />
                   Order on WhatsApp
                 </a>
-                <button
-                  type="button"
-                  onClick={() => setShowReviews((currentValue) => !currentValue)}
+                <a
+                  href="/#reviews"
                   className="inline-flex items-center rounded-md border border-[#d9bd91] bg-white/90 px-6 py-3 font-semibold text-[#4B2F1C] transition-all duration-300 hover:-translate-y-1 hover:bg-[#fff1dd]"
                 >
                   Reviews
-                </button>
+                </a>
               </div>
 
-              {showReviews && (
-                <div className="mt-5 rounded-2xl border border-[#e1cba8] bg-white/70 p-4 text-sm text-[#5f4633]">
-                  <p className="font-semibold text-[#3a2517]">Customer Reviews</p>
-                  <p className="mt-2">“Beautiful finishing and exactly as customised. Loved the handmade quality!”</p>
-                  <p className="mt-2">“Packaging was neat and the product looked premium.”</p>
-                </div>
-              )}
             </div>
           </div>
         </div>

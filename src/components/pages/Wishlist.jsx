@@ -1,59 +1,18 @@
 import { useState } from 'react'
 import { FaHeart, FaTrash, FaWhatsapp } from 'react-icons/fa'
 import paperBg from '../../assets/categories/paper-bg.jpg'
-import i1 from '../../assets/categories/i1.jpg'
-import i2 from '../../assets/categories/i2.jpg'
-import i3 from '../../assets/categories/i3.jpg'
-import i4 from '../../assets/categories/i4.jpg'
-import i5 from '../../assets/categories/i5.jpg'
-import i6 from '../../assets/categories/i6.jpg'
-
-const wishlistProducts = [
-  {
-    name: 'Personalised Resin Nameplate',
-    category: 'Nameplate & Magnet',
-    price: '₹1,299',
-    image: i1,
-  },
-  {
-    name: 'Handmade Festival Hamper',
-    category: 'Festival & Special',
-    price: '₹899',
-    image: i2,
-  },
-  {
-    name: 'Cute Kids Room Decor',
-    category: 'Kids',
-    price: '₹649',
-    image: i3,
-  },
-  {
-    name: 'Custom Couple Gift Frame',
-    category: 'Customisation',
-    price: '₹999',
-    image: i4,
-  },
-  {
-    name: '3D Resin Art Piece',
-    category: 'Resign & 3D Art',
-    price: '₹1,599',
-    image: i5,
-  },
-  {
-    name: 'Mini Handmade Gift Set',
-    category: 'Gifts',
-    price: '₹549',
-    image: i6,
-  },
-]
-
+import { getStoredWishlist, saveStoredWishlist } from '../data/wishlistStorage'
 const whatsappText = encodeURIComponent('Hi, I want to order items from my wishlist.')
 
 const Wishlist = () => {
-  const [products, setProducts] = useState(wishlistProducts)
+  const [products, setProducts] = useState(() => getStoredWishlist())
 
   const removeProduct = (productName) => {
-    setProducts((currentProducts) => currentProducts.filter((product) => product.name !== productName))
+    setProducts((currentProducts) => {
+      const updatedProducts = currentProducts.filter((product) => product.name !== productName)
+      saveStoredWishlist(updatedProducts)
+      return updatedProducts
+    })
   }
 
   return (
@@ -104,7 +63,7 @@ const Wishlist = () => {
                 </p>
                 <h3 className="text-xl font-bold text-[#3a2517]">{product.name}</h3>
                 <div className="mt-5 flex items-center justify-between gap-4">
-                  <span className="text-lg font-bold text-[#3C281B]">{product.price}</span>
+                  <span className="text-lg font-bold text-[#3C281B]">₹{product.price.toLocaleString('en-IN')}</span>
                   <div className="flex items-center gap-2">
                     <button
                       type="button"
@@ -133,12 +92,12 @@ const Wishlist = () => {
           <div className="mx-auto max-w-xl rounded-3xl border border-[#e1cba8] bg-[#fffaf0]/90 p-10 text-center shadow-[0_14px_34px_rgba(58,37,23,.12)]">
             <FaHeart className="mx-auto mb-4 text-4xl text-[#b83232]/40" />
             <h2 className="text-2xl font-bold text-[#3a2517]">Your wishlist is empty</h2>
-            <p className="mt-2 text-[#5f4633]">Products you remove will disappear from this list.</p>
+            <p className="mt-2 text-[#5f4633]">Products you like will appear here.</p>
             <a
-              href="/"
+              href="/products"
               className="mt-6 inline-flex rounded-md bg-[#E0AE45] px-6 py-3 font-semibold text-[#3C281B] shadow-[0_5px_12px_rgba(0,0,0,.15)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#D69B2D]"
             >
-              Back to Home
+              Explore Products
             </a>
           </div>
         )}

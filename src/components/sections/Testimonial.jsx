@@ -178,7 +178,7 @@ const Testimonials = () => {
   return (
     <section
       id="reviews"
-      className="relative overflow-hidden py-28"
+      className="relative scroll-mt-[96px] overflow-hidden py-28"
       style={{
         backgroundImage: `url(${paperBg})`,
         backgroundRepeat: "repeat",
