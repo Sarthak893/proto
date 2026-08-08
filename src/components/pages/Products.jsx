@@ -150,12 +150,12 @@ const Products = () => {
           </div>
           <p className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#8a541f]">Handmade Collection</p>
           <h1 className="font-['Cormorant_Garamond'] text-5xl font-bold text-[#3a2517] md:text-7xl">Products</h1>
-          <p className="mt-3 whitespace-nowrap text-[15px] leading-7 text-[#5f4633] md:text-base">
+          <p className="mt-3 max-w-3xl text-[15px] leading-7 text-[#5f4633] md:text-base">
             Explore handcrafted pieces made with love — from personalised gifts to elegant home decor.
           </p>
         </div>
 
-        <div className="sticky top-[84px] z-30 mb-8 grid gap-4 rounded-3xl border border-[#e1cba8] bg-[#fffaf0]/95 p-4 shadow-[0_12px_30px_rgba(58,37,23,.12)] backdrop-blur md:top-[104px] md:grid-cols-[0.75fr_1.55fr_0.75fr_0.8fr_auto] md:items-end">
+        <div className="sticky top-[84px] z-30 mb-8 grid gap-4 rounded-3xl border border-[#e1cba8] bg-[#fffaf0]/95 p-4 shadow-[0_12px_30px_rgba(58,37,23,.12)] backdrop-blur sm:grid-cols-2 md:top-[104px] lg:grid-cols-[0.75fr_1.55fr_0.75fr_0.8fr_auto] lg:items-end">
           <label className="flex flex-col gap-2 text-sm font-semibold text-[#3a2517]">
             Category
             <select
@@ -213,7 +213,7 @@ const Products = () => {
           <button
             type="button"
             onClick={clearFilters}
-            className="rounded-xl border border-[#d9bd91] bg-white/90 px-5 py-3 text-sm font-semibold text-[#4B2F1C] transition-all duration-300 hover:-translate-y-1 hover:bg-[#fff1dd]"
+            className="rounded-xl border border-[#d9bd91] bg-white/90 px-5 py-3 text-sm font-semibold text-[#4B2F1C] transition-all duration-300 hover:-translate-y-1 hover:bg-[#fff1dd] sm:col-span-2 lg:col-span-1"
           >
             Clear Filters
           </button>
@@ -224,7 +224,7 @@ const Products = () => {
           <p className="hidden text-sm text-[#8a541f] sm:block">Prices between ₹1000 - ₹2000</p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filteredProducts.map((product) => (
             <article
               key={`${product.category}-${product.name}`}
@@ -252,7 +252,7 @@ const Products = () => {
                 <span className="absolute right-4 top-4 rounded-full bg-[#b83232] px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-white">
                   10% Off
                 </span>
-                <div className="absolute right-4 top-16 flex flex-col gap-2 opacity-0 transition-all duration-300 group-hover:opacity-100">
+                <div className="absolute right-4 top-16 flex flex-col gap-2 opacity-100 transition-all duration-300 md:opacity-0 md:group-hover:opacity-100">
                   <button
                     type="button"
                     onClick={() => toggleLike(product)}
@@ -310,7 +310,7 @@ const Products = () => {
       {selectedProduct && (
         <div className="fixed inset-0 z-[80] grid place-items-center bg-black/50 px-4 backdrop-blur-sm" onClick={closeProductDetails}>
           <div
-            className="relative grid max-w-3xl overflow-hidden rounded-3xl bg-[#fffaf0] shadow-[0_24px_70px_rgba(0,0,0,.35)] md:grid-cols-2"
+            className="relative grid max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-3xl bg-[#fffaf0] shadow-[0_24px_70px_rgba(0,0,0,.35)] md:grid-cols-2"
             onClick={(event) => event.stopPropagation()}
           >
             <button
@@ -342,14 +342,14 @@ const Products = () => {
                   href={`https://wa.me/919468121415?text=${encodeURIComponent(`Hi, I want more details about ${selectedProduct.name}.`)}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-md bg-[#E0AE45] px-6 py-3 font-semibold text-[#3C281B] shadow-[0_5px_12px_rgba(0,0,0,.15)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#D69B2D]"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#E0AE45] px-6 py-3 font-semibold text-[#3C281B] shadow-[0_5px_12px_rgba(0,0,0,.15)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#D69B2D] sm:w-auto"
                 >
                   <FaWhatsapp />
                   Order on WhatsApp
                 </a>
                 <a
                   href="/#reviews"
-                  className="inline-flex items-center rounded-md border border-[#d9bd91] bg-white/90 px-6 py-3 font-semibold text-[#4B2F1C] transition-all duration-300 hover:-translate-y-1 hover:bg-[#fff1dd]"
+                  className="inline-flex w-full items-center justify-center rounded-md border border-[#d9bd91] bg-white/90 px-6 py-3 font-semibold text-[#4B2F1C] transition-all duration-300 hover:-translate-y-1 hover:bg-[#fff1dd] sm:w-auto"
                 >
                   Reviews
                 </a>
