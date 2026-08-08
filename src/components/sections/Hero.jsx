@@ -85,11 +85,11 @@ return (
             <img
               src={image}
               alt={`Hero ${index + 1}`}
-              width={1920}
-              height={1080}
+              width={1600}
+              height={751}
               loading={index === 0 ? "eager" : "lazy"}
               fetchPriority={index === 0 ? "high" : "auto"}
-              decoding="async"
+              decoding={index === 0 ? "sync" : "async"}
               className="
                 h-full
                 w-full
@@ -173,16 +173,14 @@ return (
         <img
           src={heroMobile}
           alt="CraftHabitat Hero"
-          width={1080}
-          height={1920}
+          width={720}
+          height={1080}
           loading="eager"
           fetchPriority="high"
-          decoding="async"
+          decoding="sync"
           className="absolute inset-0 h-full w-full object-cover object-top select-none pointer-events-none"
           draggable={false}
         />
-
-        {/* Bottom Fade */}
 
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#FFF9F3] to-transparent" />
       </div>
