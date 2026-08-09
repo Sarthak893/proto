@@ -29,17 +29,25 @@ const Hero = () => {
     );
   };
 
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === "ArrowRight") nextSlide();
-      if (e.key === "ArrowLeft") prevSlide();
-    };
+ useEffect(() => {
+  const handleKeyDown = (e) => {
+    if (e.key === "ArrowRight") {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }
 
-    window.addEventListener("keydown", handleKeyDown);
+    if (e.key === "ArrowLeft") {
+      setCurrent((prev) =>
+        prev === 0 ? slides.length - 1 : prev - 1
+      );
+    }
+  };
 
-    return () =>
-      window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  window.addEventListener("keydown", handleKeyDown);
+
+  return () => {
+    window.removeEventListener("keydown", handleKeyDown);
+  };
+}, []);
 return (
   <section
     id="home"
@@ -84,7 +92,11 @@ return (
 
             <img
               src={image}
-              alt={`Hero ${index + 1}`}
+              alt={
+  index === 0
+    ? "Handcrafted gifts and handmade decor from CraftsHabitat"
+    : "Unique handmade gifts and crafts from CraftsHabitat"
+}
               width={1600}
               height={751}
               loading={index === 0 ? "eager" : "lazy"}
@@ -109,6 +121,7 @@ return (
             {/* Overlay */}
 
             <div
+            aria-hidden="true"
               className="
                 absolute
                 inset-0
@@ -144,9 +157,11 @@ return (
         {slides.map((_, index) => (
 
           <button
-            key={index}
-            aria-label={`Go to Slide ${index + 1}`}
-            onClick={() => setCurrent(index)}
+  key={index}
+  type="button"
+  aria-label={`Go to hero slide ${index + 1}`}
+  aria-current={current === index ? "true" : undefined}
+  onClick={() => setCurrent(index)}
             className={`
               h-3
               rounded-full
@@ -172,7 +187,7 @@ return (
       <div className="relative aspect-[9/16] overflow-hidden bg-[#FFF9F3]">
         <img
           src={heroMobile}
-          alt="CraftHabitat Hero"
+          alt="CraftsHabitat handmade gifts and crafts"
           width={720}
           height={1080}
           loading="eager"
@@ -182,7 +197,19 @@ return (
           draggable={false}
         />
 
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#FFF9F3] to-transparent" />
+        <div
+  aria-hidden="true"
+  className="
+    absolute
+    bottom-0
+    left-0
+    right-0
+    h-24
+    bg-gradient-to-t
+    from-[#FFF9F3]
+    to-transparent
+  "
+/>
       </div>
     </div>
 
