@@ -79,7 +79,7 @@ const Navbar = () => {
             max-w-[1500px]
             items-center
             justify-end
-            px-4
+            px-
             sm:px-6
             md:px-10
           "

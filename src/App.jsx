@@ -48,7 +48,7 @@ function App() {
     <div className="flex min-h-screen flex-col bg-[#FFF9F3] font-['Poppins']">
       <Navbar />
 
-      <main className="flex-1 pt-[76px] md:pt-[96px]">
+      <main className="flex-1  ">
         <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<Home />} />

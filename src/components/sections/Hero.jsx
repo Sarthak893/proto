@@ -61,7 +61,8 @@ return (
         relative
         hidden
         md:block
-
+        m-0
+        p-0
         h-[75vh]
         lg:h-[90vh]
         xl:h-[calc(100vh-96px)]
