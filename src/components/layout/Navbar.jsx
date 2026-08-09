@@ -331,7 +331,7 @@ const Navbar = () => {
                 absolute
                 left-0
                 top-full
-
+                z-[70]
                 w-full
 
                 overflow-hidden
