@@ -118,8 +118,17 @@ const Footer = () => {
       </div>
 
       <div className="bg-[#3a2517] px-6 py-2 text-center text-sm text-[#f8ead5]">
-        © {new Date().getFullYear()} CraftsHabitat. All rights reserved.
-      </div>
+  © {new Date().getFullYear()} CraftsHabitat. All rights reserved by{' '}
+  <a
+    href="https://webzoid.vercel.app"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="underline hover:text-white"
+  >
+    Webzoid
+  </a>
+  .
+</div>
     </footer>
   )
 }
